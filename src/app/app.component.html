@@ -1,0 +1,25 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>Server Name:- {{appName|async}}</h1>
+      <input type="text" #serverName>
+      <button class="btn btn-primary" (click)="onAddServer(serverName.value)">Add Server</button>
+      <hr>
+      <br><br>
+      <button type="button" (click)="onSaveServer()" class="btn btn-primary">Save Server</button>
+      <button class="btn btn-success" type="button" (click)="onGetServer()">Get Server</button>
+      <br><br>
+      <button class="btn btn-primary" type="button" (click)="onGet()">Get Server Data</button>
+      <ul class="list-group" *ngFor="let server of servers; let i = index">
+        <li class="list-group-item" [ngStyle]="{'backgroundColor':(i%2) ===0 ?'yellow':'red'}">{{server.name}}(ID: {{server.id}})</li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <router-outlet></router-outlet> 
+    </div>
+  </div>
+</div>
+
+<!-- <router-outlet></router-outlet> -->
